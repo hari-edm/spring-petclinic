@@ -1,13 +1,21 @@
-node{
-    stage('code-checkout'){
-        git url:'https://github.com/hari-edm/spring-petclinic.git', branch: 'feature/s-pipeline'
-    }
+pipeline{
+    agent any
 
-    stage('build'){
-        sh 'mvn package'
-    }
-
-    stage('archive-test-results'){
-        junit testResults: '**/surefire-reports/*.xml'
+    stages{
+        stage('code-checkout'){
+            steps{
+                git url:'https://github.com/hari-edm/spring-petclinic.git', branch:'d-pipeline'
+            }
+        }
+        stage('build'){
+            steps{
+                sh 'mvn package'
+            }
+        }
+        stage('archive-test-results'){
+            steps{
+                junit testResults: '**/surefire-reports/*.xml'
+            }
+        }
     }
 }
