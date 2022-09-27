@@ -4,7 +4,7 @@ pipeline{
     stages{
         stage('code-checkout'){
             steps{
-                git url:'https://github.com/hari-edm/spring-petclinic.git', branch:'d-pipeline'
+                git url:'https://github.com/hari-edm/spring-petclinic.git', branch:'feature/d-pipeline'
             }
         }
         stage('build'){
